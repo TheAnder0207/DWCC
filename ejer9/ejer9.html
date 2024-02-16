@@ -51,6 +51,15 @@
         console.log("Last Visit: " + lastVisit);
     }
 
+    // Borrar cookies antes de cerrar la pestaña o el navegador
+    window.addEventListener('beforeunload', function() {
+        deleteCookie("language");
+        deleteCookie("theme");
+        deleteCookie("user");
+        deleteCookie("preference");
+        deleteCookie("lastVisit");
+    });
+
     // Verificar si la página ha sido visitada anteriormente
     if (!sessionStorage.getItem("visited")) {
         // Solicitar información al usuario y establecer cookies
@@ -76,5 +85,4 @@
 
 </body>
 </html>
-
 
